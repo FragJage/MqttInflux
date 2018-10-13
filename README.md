@@ -1,13 +1,13 @@
-# MqttCalcul
+# MqttInflux
 Mqtt daemon to log mqtt message into InfluxDb.
 
 ## Introduction
 This daemon log mqtt message or value into timeseries database InfluxDb.
 
 ## Features
- - Support basic operations +, -, *, /
- - Support logical operators AND (&),OR (|)
- - Supporting the lower and upper comparison
+ - Settings influx server
+ - Settings each topic
+ - TO DO support json message
 
 ## Building
 git submodule update --init --recursive
