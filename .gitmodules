@@ -1,0 +1,3 @@
+[submodule "dependency/cpr"]
+	path = dependency/cpr
+	url = https://github.com/whoshuu/cpr
