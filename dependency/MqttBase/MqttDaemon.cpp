@@ -122,7 +122,7 @@ void MqttDaemon::Configure()
 
 	LOG_INFO(m_Log) << "Load config (file " << m_ConfigFilename << ")";
 
-	iniFile.SetOptions(iniFile.Comment, "#");
+	iniFile.SetOptions(iniFile.Comment, ";");
 	if (!iniFile.Load(m_ConfigFilename))
 	{
 		LOG_INFO(m_Log) << "Unable to open config file.";
