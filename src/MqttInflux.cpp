@@ -35,7 +35,6 @@ void MqttInflux::DaemonConfigure(SimpleIni& iniFile)
         {
             m_InfluxServer = iniFile.GetValue("influx", "server", "http://127.0.0.1:8083");
             m_InfluxDb = iniFile.GetValue("influx", "database", "");
-            if(m_InfluxServer.back()!='/') m_InfluxServer+="/";
             continue;
         }
 
