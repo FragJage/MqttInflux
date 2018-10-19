@@ -69,8 +69,9 @@ void MqttInflux::on_forward(const string& identifier, const string& topic, const
 
     //TO DO a task
     LOG_VERBOSE(m_Log) << "Send to Influx : " << m_InfluxServer << "/write?db=" << m_InfluxDb << " => " << name << " value=" << message;
-    cpr::Post(cpr::Url{m_InfluxServer+"/write?db="+m_InfluxDb}, cpr::Body{name+" value="+message});
-    LOG_VERBOSE(m_Log) << "After send";
+    auto r = cpr::Post(cpr::Url{m_InfluxServer+"/write?db="+m_InfluxDb}, cpr::Body{name+" value="+message});
+    if(r.status_code != 200)
+        LOG_WARNING(m_Log) << "Influx error : Code " << r.status_code << ", message " << r.text;
 }
 
 void MqttInflux::on_message(const string& topic, const string& message)
