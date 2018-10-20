@@ -4,3 +4,6 @@
 [submodule "dependencies/SimpleIni"]
 	path = dependencies/SimpleIni
 	url = https://github.com/FragJage/SimpleIni
+[submodule "dependencies/MqttDaemon"]
+	path = dependencies/MqttDaemon
+	url = https://github.com/FragJage/MqttDaemon
