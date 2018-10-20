@@ -1,3 +1,6 @@
 [submodule "dependencies/cpr"]
 	path = dependencies/cpr
 	url = https://github.com/whoshuu/cpr
+[submodule "dependencies/SimpleIni"]
+	path = dependencies/SimpleIni
+	url = https://github.com/FragJage/SimpleIni
