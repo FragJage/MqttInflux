@@ -7,3 +7,6 @@
 [submodule "dependencies/MqttDaemon"]
 	path = dependencies/MqttDaemon
 	url = https://github.com/FragJage/MqttDaemon
+[submodule "dependencies/SimpleLog"]
+	path = dependencies/SimpleLog
+	url = https://github.com/FragJage/SimpleLog
