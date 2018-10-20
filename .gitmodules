@@ -10,3 +10,6 @@
 [submodule "dependencies/SimpleLog"]
 	path = dependencies/SimpleLog
 	url = https://github.com/FragJage/SimpleLog
+[submodule "dependencies/SimpleFolder"]
+	path = dependencies/SimpleFolder
+	url = https://github.com/FragJage/SimpleFolder
