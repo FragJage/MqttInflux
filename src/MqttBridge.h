@@ -3,7 +3,7 @@
 
 #include <string>
 #include <set>
-#include "MqttBase/MqttBase.h"
+#include "MqttBase.h"
 #include "IForwardMessage.h"
 
 class MqttBridge : public MqttBase

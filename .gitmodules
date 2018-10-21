@@ -13,3 +13,9 @@
 [submodule "dependencies/SimpleFolder"]
 	path = dependencies/SimpleFolder
 	url = https://github.com/FragJage/SimpleFolder
+[submodule "dependencies/ServiceSkeleton"]
+	path = dependencies/ServiceSkeleton
+	url = https://github.com/FragJage/ServiceSkeleton
+[submodule "dependencies/FragFramework"]
+	path = dependencies/FragFramework
+	url = https://github.com/FragJage/FragFramework

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "MqttBase/MqttDaemon.h"
+#include "MqttDaemon.h"
 #include "MqttBridge.h"
 
 class MqttInflux : public MqttDaemon, public IForwardMessage
