@@ -8,7 +8,7 @@
 
 using namespace std;
 
-MqttInflux::MqttInflux() : MqttDaemon("influx", ".MqttInflux")
+MqttInflux::MqttInflux() : MqttDaemon("influx", "MqttInflux")
 {
 }
 
