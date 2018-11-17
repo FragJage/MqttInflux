@@ -23,5 +23,6 @@ class MqttInflux : public MqttDaemon, public IForwardMessage
         std::string m_InfluxDb;
         std::vector<MqttBridge*> m_MqttClients;
 		void DaemonConfigure(SimpleIni& iniFile);
+		bool IsDecimal(const std::string& s);
 };
 #endif // MQTTINFLUX_H

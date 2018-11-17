@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+#include <algorithm>
 #include <cpr/cpr.h>
 #ifdef WIN32
 #include <WinSock2.h>		// To stop windows.h including winsock.h
@@ -56,20 +57,26 @@ void MqttInflux::DaemonConfigure(SimpleIni& iniFile)
 	LOG_EXIT_OK;
 }
 
+bool MqttInflux::IsDecimal(const string& s)
+{
+    return !s.empty() && find_if(s.begin(), s.end(), [](char c) { return !((isdigit(c))||(c=='.')); }) == s.end();
+}
+
 void MqttInflux::on_forward(const string& identifier, const string& topic, const string& message)
 {
     if(m_bPause) return;
 
     size_t pos;
     string name(topic);
-
     LOG_VERBOSE(m_Log) << "Mqtt receive for rule " << identifier << " : " << topic << " => " << message;
     pos = name.find_last_of('/');
     if(pos != string::npos) name = name.substr(pos+1);
 
     //TO DO a task
-    LOG_VERBOSE(m_Log) << "Send to Influx : " << m_InfluxServer << "/write?db=" << m_InfluxDb << " => " << name << " value=" << message;
-    auto r = cpr::Post(cpr::Url{m_InfluxServer+"/write?db="+m_InfluxDb}, cpr::Body{name+" value="+message});
+    string value = message;
+    if(!IsDecimal(value)) value = """"+value+"""";
+    LOG_VERBOSE(m_Log) << "Send to Influx : " << m_InfluxServer << "/write?db=" << m_InfluxDb << " => " << name << " value=" << value;
+    auto r = cpr::Post(cpr::Url{m_InfluxServer+"/write?db="+m_InfluxDb}, cpr::Body{name+" value="+value});
     if((r.status_code < 200)||(r.status_code > 299))
         LOG_WARNING(m_Log) << "Influx error : Code " << r.status_code << ", message " << r.text;
 }
