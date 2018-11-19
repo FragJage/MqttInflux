@@ -74,7 +74,8 @@ void MqttInflux::on_forward(const string& identifier, const string& topic, const
 
     //TO DO a task
     string value = message;
-    if(!IsDecimal(value)) value = """"+value+"""";
+    if(!IsDecimal(value))
+       value = "\""+value+"\"";
     LOG_VERBOSE(m_Log) << "Send to Influx : " << m_InfluxServer << "/write?db=" << m_InfluxDb << " => " << name << " value=" << value;
     auto r = cpr::Post(cpr::Url{m_InfluxServer+"/write?db="+m_InfluxDb}, cpr::Body{name+" value="+value});
     if((r.status_code < 200)||(r.status_code > 299))
